@@ -1,6 +1,6 @@
 import os
 
-# Google Drive Root
+### Google Drive Root
 
 # Change if yours doesn't match
 GOOGLE_DRIVE_ROOT = "/content/drive/MyDrive/CheXpertSubset"
