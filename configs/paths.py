@@ -26,6 +26,6 @@ CHEXPERT_TRAIN_DIR = os.path.join(DATA_ROOT, "train")
 CHEXPERT_VALID_DIR = os.path.join(DATA_ROOT, "valid")
 
 CHEXPERT_TRAIN_CSV = os.path.join(DATA_ROOT, "train.csv")
-CHEXPERT_TRAIN_SUBSET_CSV = os.path.join(DATA_ROOT, "train.csv")
+CHEXPERT_TRAIN_SUBSET_CSV = os.path.join(DATA_ROOT, "train_subset.csv")
 CHEXPERT_VALID_CSV = os.path.join(DATA_ROOT, "valid.csv")
 
