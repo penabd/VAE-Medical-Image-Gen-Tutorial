@@ -28,7 +28,7 @@ def prepare_train_csv(
 
     # Normalize paths
     df["Path"] = df["Path"].str.replace(
-        "CheXpert-v1.0-small/train/", "", regex=False
+        "CheXpert-v1.0-small/", "", regex=False
     )
 
     print(f"Path example: {df['Path'].iloc[0]}")
