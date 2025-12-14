@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 
+from model.loss import cvae_loss
+
 def evaluate(model, loader, device):
     model.eval()
     total_loss = 0
