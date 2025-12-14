@@ -24,6 +24,6 @@ def download_dataset():
     )
     subprocess.run(["unzip", "chexpert.zip", "-d", DATA_ROOT], check=True)
 
-if __name__ == "__main__":
-    check_kaggle()
-    download_dataset()
+# if __name__ == "__main__":
+#     check_kaggle()
+#     download_dataset()

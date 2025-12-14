@@ -40,5 +40,5 @@ def prepare_train_csv(
     print("Example CSV path:", df["Path"].iloc[0])
     print("Example valid path:", next(iter(valid_paths)))
 
-if __name__ == "__main__":
-    prepare_train_csv()
+# if __name__ == "__main__":
+#     prepare_train_csv()

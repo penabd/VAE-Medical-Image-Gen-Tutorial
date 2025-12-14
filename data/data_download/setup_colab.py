@@ -63,26 +63,27 @@ def batch_copy_patients(src, dst, batch_size, total):
                 print(f"Failed to copy {p} after {retries} attempts.")
 
 
-if __name__ == "__main__":
-    mount_drive()
-    rsync_subset(
-        paths.GOOGLE_DRIVE_CHEXPERT_VALID_DIR,
-        paths.DEFAULT_DATA_ROOT
-    )
 
-    rsync_subset(
-        paths.GOOGLE_DRIVE_CHEXPERT_VALID_CSV,
-        paths.CHEXPERT_VALID_CSV
-    )
+# if __name__ == "__main__":
+#     mount_drive()
+#     rsync_subset(
+#         paths.GOOGLE_DRIVE_CHEXPERT_VALID_DIR,
+#         paths.DEFAULT_DATA_ROOT
+#     )
 
-    rsync_subset(
-        paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_CSV,
-        paths.CHEXPERT_TRAIN_CSV
-    )
+#     rsync_subset(
+#         paths.GOOGLE_DRIVE_CHEXPERT_VALID_CSV,
+#         paths.CHEXPERT_VALID_CSV
+#     )
 
-    # note that we rsync the training data in batches.
-    batch_copy_patients(
-        paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_DIR,
-        paths.CHEXPERT_TRAIN_DIR, 
-        BATCH_SIZE,
-        TOTAL)
+#     rsync_subset(
+#         paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_CSV,
+#         paths.CHEXPERT_TRAIN_CSV
+#     )
+
+#     # note that we rsync the training data in batches.
+#     batch_copy_patients(
+#         paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_DIR,
+#         paths.CHEXPERT_TRAIN_DIR, 
+#         BATCH_SIZE,
+#         TOTAL)
