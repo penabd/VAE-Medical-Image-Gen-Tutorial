@@ -27,7 +27,7 @@ def setup_chexpert_data(
     )
     rsync_file(
         paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_CSV,
-        paths.CHEXPERT_TRAIN_CSV
+        paths.CHEXPERT_TRAIN_SUBSET_CSV
     )
 
     print("Syncing training images (batched)...")
