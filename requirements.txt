@@ -1,0 +1,12 @@
+# Core ML
+torch
+torchvision
+
+# Data handling
+pandas
+
+# Visualization
+matplotlib
+
+# Image processing
+Pillow
