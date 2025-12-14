@@ -38,7 +38,7 @@ def get_chexpert_dataloader(
 def get_chexpert_train_dataloader():
     dataset = get_chexpert_dataset(
         csv_path=paths.CHEXPERT_TRAIN_SUBSET_CSV,
-        image_root=paths.CHEXPERT_TRAIN_DIR,
+        image_root=paths.DEFAULT_DATA_ROOT,
         label_name="Pneumonia",
     )
     dataloader = get_chexpert_dataloader(
@@ -52,7 +52,7 @@ def get_chexpert_train_dataloader():
 def get_chexpert_valid_dataloader():
     dataset = get_chexpert_dataset(
         csv_path=paths.CHEXPERT_VALID_CSV,
-        image_root=paths.CHEXPERT_VALID_DIR,
+        image_root=paths.DEFAULT_DATA_ROOT,
         label_name="Pneumonia",
     )
     dataloader = get_chexpert_dataloader(
