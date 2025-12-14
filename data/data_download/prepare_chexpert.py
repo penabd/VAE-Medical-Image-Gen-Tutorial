@@ -19,9 +19,11 @@ def prepare_train_csv(
 ):
     print("Collecting valid image paths...")
     valid_paths = collect_valid_paths(image_root)
+    print(f"Found {len(valid_paths)} valid image paths.")
 
     print("Loading CSV...")
     df = pd.read_csv(csv_in).fillna(0)
+    print(f"Original dataset size: {len(df)}")
 
     # Normalize paths
     df["Path"] = df["Path"].str.replace(
@@ -30,6 +32,8 @@ def prepare_train_csv(
 
     # Keep frontal views only
     df = df[df["Path"].str.contains("frontal", na=False)]
+    print(f"Dataset size after filtering for frontal views: {len(df)}")
+
 
     # Keep only images that exist on colab
     df = df[df["Path"].isin(valid_paths)]
