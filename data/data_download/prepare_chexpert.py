@@ -20,6 +20,7 @@ def prepare_train_csv(
     print("Collecting valid image paths...")
     valid_paths = collect_valid_paths(image_root)
     print(f"Found {len(valid_paths)} valid image paths.")
+    print("Example valid path:", next(iter(valid_paths)))
 
     print("Loading CSV...")
     df = pd.read_csv(csv_in).fillna(0)
@@ -30,13 +31,16 @@ def prepare_train_csv(
         "CheXpert-v1.0-small/train/", "", regex=False
     )
 
+    print(f"Path example: {df['Path'].iloc[0]}")
+
+
     # Keep frontal views only
     df = df[df["Path"].str.contains("frontal", na=False)]
     print(f"Dataset size after filtering for frontal views: {len(df)}")
 
-
     # Keep only images that exist on colab
     df = df[df["Path"].isin(valid_paths)]
+    print(f"Dataset size after filtering for existing images: {len(df)}")
 
     df.to_csv(csv_out, index=False)
 
