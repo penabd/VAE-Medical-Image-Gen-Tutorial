@@ -16,12 +16,20 @@ def mount_drive():
     drive.mount("/content/drive")
 
 # used to move data from google drive to colab for better I/O
-def rsync_subset(src, dst):
+def rsync_dir(src, dst):
     os.makedirs(dst, exist_ok=True)
     subprocess.run(
         ["rsync", "-avh", "--ignore-errors", src, dst],
         check=False
     )
+
+def rsync_file(src, dst):
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    subprocess.run(
+        ["rsync", "-avh", src, dst],
+        check=False
+    )
+
 
 def batch_copy_patients(src, dst, batch_size, total):
     os.makedirs(dst, exist_ok=True)

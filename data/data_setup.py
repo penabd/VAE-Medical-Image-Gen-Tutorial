@@ -1,6 +1,7 @@
 from data.data_download.setup_colab import (
     mount_drive,
-    rsync_subset,
+    rsync_dir,
+    rsync_file,
     batch_copy_patients,
 )
 from configs import paths
@@ -14,17 +15,17 @@ def setup_chexpert_data(
     mount_drive()
 
     print("Syncing validation images...")
-    rsync_subset(
+    rsync_dir(
         paths.GOOGLE_DRIVE_CHEXPERT_VALID_DIR,
         paths.DEFAULT_DATA_ROOT
     )
 
     print("Syncing CSVs...")
-    rsync_subset(
+    rsync_file(
         paths.GOOGLE_DRIVE_CHEXPERT_VALID_CSV,
         paths.CHEXPERT_VALID_CSV
     )
-    rsync_subset(
+    rsync_file(
         paths.GOOGLE_DRIVE_CHEXPERT_TRAIN_CSV,
         paths.CHEXPERT_TRAIN_CSV
     )
