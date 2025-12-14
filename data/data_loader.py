@@ -18,14 +18,47 @@ def get_chexpert_dataset(
 
     return dataset
 
-def get_chexpert_train():
-    return get_chexpert_dataset(
-        csv_path=CHEXPERT_TRAIN_CSV,
-        image_root=CHEXPERT_TRAIN_DIR,
-    )
 
-def get_chexpert_valid():
-    return get_chexpert_dataset(
-        csv_path=CHEXPERT_VALID_CSV,
-        image_root=CHEXPERT_VALID_DIR,
+def get_chexpert_dataloader(
+    dataset,
+    batch_size=32,
+    shuffle=True,
+    num_workers=2,
+):
+    dataloader = DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=shuffle,
+        num_workers=num_workers,
+        pin_memory=True,
     )
+    return dataloader
+
+
+def get_chexpert_train_dataloader():
+    dataset = get_chexpert_dataset(
+        csv_path=paths.CHEXPERT_TRAIN_SUBSET_CSV,
+        image_root=paths.CHEXPERT_TRAIN_DIR,
+        label_name="Pneumonia",
+    )
+    dataloader = get_chexpert_dataloader(
+        dataset,
+        batch_size=32,
+        shuffle=True,
+        num_workers=2,
+    )
+    return dataloader
+
+def get_chexpert_valid_dataloader():
+    dataset = get_chexpert_dataset(
+        csv_path=paths.CHEXPERT_VALID_CSV,
+        image_root=paths.CHEXPERT_VALID_DIR,
+        label_name="Pneumonia",
+    )
+    dataloader = get_chexpert_dataloader(
+        dataset,
+        batch_size=32,
+        shuffle=False,
+        num_workers=2,
+    )
+    return dataloader
