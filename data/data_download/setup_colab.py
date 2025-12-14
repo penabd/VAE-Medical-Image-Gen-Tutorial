@@ -24,7 +24,6 @@ def rsync_dir(src, dst):
     )
 
 def rsync_file(src, dst):
-    os.makedirs(os.path.dirname(dst), exist_ok=True)
     subprocess.run(
         ["rsync", "-avh", src, dst],
         check=False
